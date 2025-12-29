@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Home from "./pages/Home";
+import ProductDetails from "./pages/ProductDetails";
+import MyOrders from "./pages/MyOrders";
+import AdminPanel from "./pages/AdminPanel";
+import Web3Provider from "./contexts/Web3Context";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Web3Provider>
+      <Router>
+        <div className="App">
+          <NavBar />
+          <div className="container">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/my-orders" element={<MyOrders />} />
+              <Route path="/admin" element={<AdminPanel />} />
+            </Routes>
+          </div>
+        </div>
+      </Router>
+    </Web3Provider>
   );
 }
 
