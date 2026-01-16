@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useWeb3 } from "../contexts/Web3Context";
+import { useWeb3 } from "../../contexts/Web3Context";
+import "./Navbar.css"
 
 const NavBar = () => {
   const { account, isOwner, connectWallet } = useWeb3();
@@ -11,9 +12,9 @@ const NavBar = () => {
         <Link to={"/"}>Your Needs</Link>
       </div>
       <div className="nav-menu">
-        <Link to={"/"}>Home</Link>
-        {account && <Link to={"/my-orders"}>My Orders</Link>}
-        {isOwner && <Link to={"/admin"}>Admin</Link>}
+        <Link to={"/"} className="nav-item">Home</Link>
+        {account && <Link to={"/my-orders"} className="nav-item">My Orders</Link>}
+        {isOwner && <Link to={"/admin"} className="nav-item">Admin</Link>}
       </div>
       <div>
         {!account ? (

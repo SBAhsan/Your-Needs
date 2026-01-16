@@ -46,7 +46,7 @@ const Web3Provider = ({ children }) => {
           console.log("Please install metamask");
         }
       } catch (error) {
-        console.log("Error Web3 initializing", error);
+        console.error("Error Web3 initializing", error);
       } finally {
         setLoading(false);
       }
@@ -104,7 +104,7 @@ const Web3Provider = ({ children }) => {
 
         return true;
       } catch (error) {
-        console.log("Error connecting wallet : ", error);
+        console.error("Error connecting wallet : ", error);
       }
     };
 
@@ -137,7 +137,7 @@ const Web3Provider = ({ children }) => {
 
         return true;
       } catch (error) {
-        console.log("Error listing product", error);
+        console.error("Error listing product", error);
       }
     };
 
@@ -165,7 +165,7 @@ const Web3Provider = ({ children }) => {
 
       return { success: true };
     } catch (error) {
-      console.log("SimpleBuy failed", error);
+      console.error("SimpleBuy failed", error);
     }
   };
 
@@ -187,7 +187,7 @@ const Web3Provider = ({ children }) => {
         stock: product.stock.toNumber(),
       };
     } catch (error) {
-      console.log("Error getting product", error);
+      console.error("Error getting product", error);
     }
   };
 
@@ -217,7 +217,7 @@ const Web3Provider = ({ children }) => {
       }
       return orders;
     } catch (error) {
-      console.log("Error getting orders", error);
+      console.error("Error getting orders", error);
       return [];
     }
   };
@@ -230,7 +230,7 @@ const Web3Provider = ({ children }) => {
       await transaction.wait();
       return true;
     } catch (error) {
-      console.log("Error withdrawing fund", error);
+      console.error("Error withdrawing fund", error);
       return false;
     }
   };
